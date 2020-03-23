@@ -1,16 +1,14 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { StyledNavUl, StyledLink } from './style';
 
 export default function Header() {
   return (
     <header className="ui centered">
       <h1 className="ui center">Rick &amp; Morty Fan Page</h1>
-      <div>
-        <Link to="/">Home</Link>
-      </div>
-      <div>
-        <Link to="/characters">Characters</Link>
-      </div>
+      <StyledNavUl>
+        <li><StyledLink to="/">Home</StyledLink></li>
+        <li><StyledLink to="/characters">Characters</StyledLink></li>
+      </StyledNavUl>
     </header>
   );
 }
