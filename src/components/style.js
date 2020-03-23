@@ -40,6 +40,12 @@ export const StyledLink = styled(Link)`
     }
 `;
 
+// WelcomePage Styles
+
+export const StyledWelcomeHeader = styled.div`
+    text-align: center;
+`;
+
 // SearchForm Styles
 
 export const StyledForm = styled(Form)`
