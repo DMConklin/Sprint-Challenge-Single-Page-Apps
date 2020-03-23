@@ -108,9 +108,10 @@ export const StyledCardInfoDiv = styled.div`
 // Pagination Styles
 
 export const StyledPaginationButton = styled.button`
-    background-color: transparent;
     border-color: transparent;
+    background-color: transparent;
     color: #1f9ace;
+    font-size: 12px;
 `;
 
 export const StyledPaginationUl = styled.ul`

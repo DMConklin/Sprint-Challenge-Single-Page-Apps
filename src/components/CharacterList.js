@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from "react";
 import CharacterCard from './CharacterCard';
-import { SearchForm, NoCharacters } from './index';
+import { SearchForm, NoCharacters, Pagination } from './index';
 import axios from 'axios';
 import { StyledCharacterListSection } from './style';
 
-export default function CharacterList(props) {
-  const [characterData, setCharacterData] = useState([]);
+export default function CharacterList() {
+  const [characterData, setCharacterData] = useState(false);
   const [url, setUrl] = useState(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/`);
 
   useEffect(() => {
     axios.get(url)
-    .then(response => setCharacterData(response.data.results))
+    .then(response => setCharacterData(response.data))
     .catch(err => setCharacterData(false));
   }, [url]);
 
   const urlSetter = (query) => {
-    setUrl(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/${query}`)
+    setUrl(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/${query}`)
   }
 
   return (
     <>
-    <SearchForm url={urlSetter} />
+    <SearchForm urlSetter={urlSetter} />
+    {!characterData ? null : <Pagination info={characterData.info} urlSetter={urlSetter} url={url} />}
     <StyledCharacterListSection className="character-list">
-      {console.log(characterData)}
-      {characterData === false ? <NoCharacters /> : characterData.map(character => {
+      {!characterData ? <NoCharacters /> : characterData.results.map(character => {
         return <CharacterCard character={character} key={character.id} />
       })}
     </StyledCharacterListSection>
