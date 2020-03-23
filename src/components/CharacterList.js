@@ -21,6 +21,7 @@ export default function CharacterList() {
   return (
     <>
     <SearchForm urlSetter={urlSetter} />
+    {!characterData ? null : <Pagination info={characterData.info} urlSetter={urlSetter} url={url} />}
     <StyledCharacterListSection className="character-list">
       {!characterData ? <NoCharacters /> : characterData.results.map(character => {
         return <CharacterCard character={character} key={character.id} />
