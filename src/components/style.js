@@ -7,7 +7,7 @@ import { Form, Field } from 'formik';
 export const StyledAppMain = styled.main`
     background-color: black;
     box-shadow: 0px 0px 5px 5px #7ab363;
-    padding: 50px;
+    padding: 25px;
 `;
 
 // Header Styles
