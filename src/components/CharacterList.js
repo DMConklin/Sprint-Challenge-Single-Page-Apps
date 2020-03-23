@@ -14,8 +14,8 @@ export default function CharacterList() {
     .catch(err => setCharacterData(false));
   }, [url]);
 
-  const urlSetter = (query) => {
-    setUrl(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/${query}`)
+  const urlSetter = (url) => {
+    setUrl(url)
   }
 
   return (

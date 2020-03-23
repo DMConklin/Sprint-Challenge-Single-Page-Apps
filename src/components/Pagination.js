@@ -1,32 +1,51 @@
-import React, { useState } from 'react';
-import { StyledPaginationButton, StyledPaginationUl } from './style';
+import React, { useState, useEffect } from 'react';
+import { StyledPaginationButton, StyledContainerDiv } from './style';
 
 const Pagination = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
 
-    console.log(props.url.split('&')[0].substr(78));
+    useEffect(() => {
+        if (props.url.includes('&name')) {
+            setCurrentPage(props.url.split('&')[0].split('=')[1]);
+        } else if (props.url.includes('?page')) {
+            setCurrentPage(props.url[props.url.length - 1]);
+        } else {
+            setCurrentPage(1);
+        }
+    }, [props.url])
 
-    const pageHandler = (url, page) => {
-        if (currentPage !== page) {
-            if (url[url.length - 1] === '/' || url.includes('?page')) {
-                props.urlSetter(`?page=${page}`);
-            } else if (url.includes('&page')) {
-                props.urlSetter(`${url.split('&')[0].substr(78)}&page=${page}`);
-            } else {
-                props.urlSetter(`${url.substr(78)}&page=${page}`);
-            }
-            setCurrentPage(page);
+    const nextPage = () => {
+        if (currentPage < props.info.pages) {
+            props.urlSetter(props.info.next);
         }
     }
 
+    const prevPage = () => {
+        if (currentPage > 1) {
+            props.urlSetter(props.info.prev);
+        }
+    }
+    // const pageHandler = (page, url) => {
+        // if (currentPage !== page) {
+        //     if (url[url.length - 1] === '/' || url.includes('?page')) {
+        //         props.urlSetter(`?page=${page}`);
+        //     } else if (url.includes('&page')) {
+        //         props.urlSetter(`${url.split('&')[0].substr(78)}&page=${page}`);
+        //     } else {
+        //         props.urlSetter(`${url.substr(78)}&page=${page}`);
+        //     }
+        //     setCurrentPage(page);
+        // }
+
     return(
-        <StyledPaginationUl>
-            <StyledPaginationUl>
+        <StyledContainerDiv>
+            <StyledPaginationButton onClick={() => prevPage()}>&lt;Prev</StyledPaginationButton><span>Page {currentPage} of {props.info.pages}</span><StyledPaginationButton onClick={() => nextPage()}>Next&gt;</StyledPaginationButton>
+        </StyledContainerDiv>
+        /* <StyledPaginationUl>
             {[...Array(props.info.pages)].map((x, index) => index+1).map(page => {
                 return <li key={page}><StyledPaginationButton onClick={() => pageHandler(props.url, page)}>{page}</StyledPaginationButton></li>
             })}
-            </StyledPaginationUl>
-        </StyledPaginationUl>
+        </StyledPaginationUl> */
     )
 }
 

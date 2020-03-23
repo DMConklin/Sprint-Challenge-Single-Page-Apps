@@ -20,7 +20,7 @@ export default withFormik({
       };
   },
   handleSubmit: (value, formikBag) => {
-      formikBag.props.urlSetter(`?name=${value.search}`);
+      formikBag.props.urlSetter(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/?name=${value.search}`);
       formikBag.setStatus('Form Submitting');
   }
 })(SearchForm)

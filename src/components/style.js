@@ -107,14 +107,20 @@ export const StyledCardInfoDiv = styled.div`
 
 // Pagination Styles
 
+export const StyledContainerDiv = styled.div`
+    text-align: center;
+`;
+
 export const StyledPaginationButton = styled.button`
     border-color: transparent;
     background-color: transparent;
     color: #1f9ace;
-    font-size: 12px;
+    font-size: 16px;
 `;
 
 export const StyledPaginationUl = styled.ul`
     list-style: none;
     display: flex;
+    margin: 10px auto;
+    padding: 0;
 `;
