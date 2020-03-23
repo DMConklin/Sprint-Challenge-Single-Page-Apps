@@ -15,7 +15,7 @@ export default function CharacterList(props) {
     <section className="character-list">
       {console.log(characterData)}
       {characterData.map(character => {
-        return <CharacterCard character={character} />
+        return <CharacterCard character={character} key={character.id} />
       })}
     </section>
   );
