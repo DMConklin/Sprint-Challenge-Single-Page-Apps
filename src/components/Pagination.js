@@ -5,10 +5,11 @@ const Pagination = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
+        console.log(props.url);
         if (props.url.includes('&name')) {
             setCurrentPage(props.url.split('&')[0].split('=')[1]);
         } else if (props.url.includes('?page')) {
-            setCurrentPage(props.url[props.url.length - 1]);
+            setCurrentPage(props.url.split('=')[1]);
         } else {
             setCurrentPage(1);
         }
