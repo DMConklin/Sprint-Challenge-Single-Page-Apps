@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Form, Field } from 'formik';
 
 // App Styles
@@ -31,7 +31,7 @@ export const StyledNavUl = styled.ul`
     margin: 50px auto;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
     margin-right: 25px;
     text-decoration: none;
     color: #1f9ace;
