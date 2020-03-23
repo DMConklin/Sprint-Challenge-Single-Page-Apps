@@ -22,6 +22,5 @@ export default withFormik({
   handleSubmit: (value, formikBag) => {
       formikBag.props.url(value.search);
       formikBag.setStatus('Form Submitting');
-      formikBag.resetForm();
   }
 })(SearchForm)

@@ -6,7 +6,6 @@ import { StyledCharacterListSection } from './style';
 
 export default function CharacterList(props) {
   const [characterData, setCharacterData] = useState([]);
-
   const [url, setUrl] = useState('https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/');
 
   useEffect(() => {
