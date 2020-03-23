@@ -109,6 +109,7 @@ export const StyledCardInfoDiv = styled.div`
 
 export const StyledContainerDiv = styled.div`
     text-align: center;
+    margin: 20px 0;
 `;
 
 export const StyledPaginationButton = styled.button`
