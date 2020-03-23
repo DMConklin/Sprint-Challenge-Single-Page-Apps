@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const apiGetter = (url) => {
+export const APIGetter = (url) => {
     axios.get(url)
-    .then(response => console.log(response))
+    .then(response => console.log(response.data.results))
     .catch(err => console.log(err))
   }
