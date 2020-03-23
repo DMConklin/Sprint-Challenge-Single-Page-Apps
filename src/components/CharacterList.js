@@ -6,16 +6,16 @@ import { StyledCharacterListSection } from './style';
 
 export default function CharacterList(props) {
   const [characterData, setCharacterData] = useState([]);
-  const [url, setUrl] = useState('https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/');
+  const [url, setUrl] = useState(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/`);
 
   useEffect(() => {
     axios.get(url)
-    .then(response => console.log(setCharacterData(response.data.results)))
+    .then(response => setCharacterData(response.data.results))
     .catch(err => setCharacterData(false));
   }, [url]);
 
-  const urlSetter = (name) => {
-    setUrl(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/${name}`)
+  const urlSetter = (query) => {
+    setUrl(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/${query}`)
   }
 
   return (

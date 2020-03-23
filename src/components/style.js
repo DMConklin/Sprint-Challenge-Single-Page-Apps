@@ -104,3 +104,16 @@ export const StyledCharacterCardUl = styled.ul`
 export const StyledCardInfoDiv = styled.div`
     padding: 10px;
 `;
+
+// Pagination Styles
+
+export const StyledPaginationButton = styled.button`
+    background-color: transparent;
+    border-color: transparent;
+    color: #1f9ace;
+`;
+
+export const StyledPaginationUl = styled.ul`
+    list-style: none;
+    display: flex;
+`;
