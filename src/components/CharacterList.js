@@ -5,7 +5,7 @@ import axios from 'axios';
 import { StyledCharacterListSection } from './style';
 
 export default function CharacterList() {
-  const [characterData, setCharacterData] = useState(false);
+  const [characterData, setCharacterData] = useState({results: [], info: {}});
   const [url, setUrl] = useState(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/`);
 
   useEffect(() => {
