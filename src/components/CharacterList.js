@@ -12,7 +12,7 @@ export default function CharacterList(props) {
   useEffect(() => {
     axios.get(url)
     .then(response => console.log(setCharacterData(response.data.results)))
-    .catch(err => console.log(err));
+    .catch(err => setCharacterData(false));
   }, [url]);
 
   const urlSetter = (name) => {
@@ -24,7 +24,7 @@ export default function CharacterList(props) {
     <SearchForm url={urlSetter} />
     <StyledCharacterListSection className="character-list">
       {console.log(characterData)}
-      {characterData.map(character => {
+      {characterData === false ? <h2>No characters by that name.</h2> : characterData.map(character => {
         return <CharacterCard character={character} key={character.id} />
       })}
     </StyledCharacterListSection>
