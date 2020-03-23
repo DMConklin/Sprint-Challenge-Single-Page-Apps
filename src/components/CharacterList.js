@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import CharacterCard from './CharacterCard';
-import SearchForm from './SearchForm';
+import { SearchForm, NoCharacters } from './index';
 import axios from 'axios';
-import { StyledCharacterListSection, StyledNoListDiv } from './style';
+import { StyledCharacterListSection } from './style';
 
 export default function CharacterList(props) {
   const [characterData, setCharacterData] = useState([]);
@@ -24,7 +24,7 @@ export default function CharacterList(props) {
     <SearchForm url={urlSetter} />
     <StyledCharacterListSection className="character-list">
       {console.log(characterData)}
-      {characterData === false ? <StyledNoListDiv><img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="rick"/><br /><h2>Yeah I don't think so genius.</h2></StyledNoListDiv> : characterData.map(character => {
+      {characterData === false ? <NoCharacters /> : characterData.map(character => {
         return <CharacterCard character={character} key={character.id} />
       })}
     </StyledCharacterListSection>

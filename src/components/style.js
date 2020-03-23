@@ -72,6 +72,8 @@ export const StyledCharacterListSection = styled.section`
     justify-content: space-between;
 `;
 
+// NoCharacters Styles
+
 export const StyledNoListDiv = styled.div`
     text-align: center;
     margin: 25px auto;
