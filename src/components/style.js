@@ -51,7 +51,7 @@ export const StyledWelcomeHeader = styled.div`
 export const StyledForm = styled(Form)`
     display: flex;
     flex-direction: column;
-    width: 25%;
+    width: 158px;
     margin: 0 auto;
 `;
 
@@ -83,7 +83,7 @@ export const StyledNoListDiv = styled.div`
 
 export const StyledCharacterCardDiv = styled.div`
     box-shadow: 0px 0px 5px 5px #7ab363;
-    width: 30%;
+    width: 307px;
     margin 25px 0;
 `;
 

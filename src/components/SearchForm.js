@@ -20,7 +20,7 @@ export default withFormik({
       };
   },
   handleSubmit: (value, formikBag) => {
-      formikBag.props.url(value.search);
+      formikBag.props.url(`character/?name=${value.search}`);
       formikBag.setStatus('Form Submitting');
   }
 })(SearchForm)

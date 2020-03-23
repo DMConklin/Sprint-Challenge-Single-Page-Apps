@@ -15,7 +15,7 @@ export default function CharacterList(props) {
   }, [url]);
 
   const urlSetter = (name) => {
-    setUrl(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/?name=${name}`)
+    setUrl(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/${name}`)
   }
 
   return (
