@@ -1,16 +1,17 @@
 import React from "react";
 import { Route} from 'react-router-dom';
 import { Header, WelcomePage, CharacterList } from './components';
+import { StyledAppMain} from './components/style';
 
 export default function App() {
 
   return (
-    <main data-testid='app'>
+    <StyledAppMain data-testid='app'>
       <Header />
       
       <Route exact path="/" component={WelcomePage} />
       <Route path="/characters" component={CharacterList} />
       <Route path="/search" />
-    </main>
+    </StyledAppMain>
   );
 }

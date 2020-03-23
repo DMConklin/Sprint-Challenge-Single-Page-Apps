@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CharacterCard from './CharacterCard';
 import SearchForm from './SearchForm';
 import axios from 'axios';
+import { StyledCharacterListSection } from './style';
 
 export default function CharacterList(props) {
   const [characterData, setCharacterData] = useState([]);
@@ -19,12 +20,14 @@ export default function CharacterList(props) {
   }
 
   return (
-    <section className="character-list">
-      <SearchForm url={urlSetter} />
+    <>
+    <SearchForm url={urlSetter} />
+    <StyledCharacterListSection className="character-list">
       {console.log(characterData)}
       {characterData.map(character => {
         return <CharacterCard character={character} key={character.id} />
       })}
-    </section>
+    </StyledCharacterListSection>
+    </>
   );
 }

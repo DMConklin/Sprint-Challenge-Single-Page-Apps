@@ -1,12 +1,14 @@
 import React from "react";
-import { withFormik, Form, Field } from 'formik';
+import { withFormik } from 'formik';
+import { StyledForm, StyledSubmitInput, StyledField } from './style';
 
 const SearchForm = (props) => {
   return (
     <section className="search-form">
-     <Form>
-       <Field type="text" name="search" placeholder="Search" /><input type="submit" value="Search" />
-     </Form>
+     <StyledForm>
+       <StyledField type="text" name="search" placeholder="Search" />
+       <StyledSubmitInput type="submit" value="Err, right. Where's that list?" />
+     </StyledForm>
     </section>
   );
 }
