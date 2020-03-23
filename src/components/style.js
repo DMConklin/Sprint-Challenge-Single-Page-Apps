@@ -72,6 +72,11 @@ export const StyledCharacterListSection = styled.section`
     justify-content: space-between;
 `;
 
+export const StyledNoListDiv = styled.div`
+    text-align: center;
+    margin: 25px auto;
+`;
+
 // CharacterCard Styles
 
 export const StyledCharacterCardDiv = styled.div`
