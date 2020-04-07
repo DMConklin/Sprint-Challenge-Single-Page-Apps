@@ -1,16 +1,33 @@
 import React, { useEffect, useState } from "react";
+import CharacterCard from './CharacterCard';
+import { SearchForm, NoCharacters, Pagination } from './index';
+import axios from 'axios';
+import { StyledCharacterListSection } from './style';
 
 export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
+  const [characterData, setCharacterData] = useState({results: [], info: {}});
+  const [url, setUrl] = useState(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/`);
 
   useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+    axios.get(url)
+    .then(response => setCharacterData(response.data))
+    .catch(err => setCharacterData(false));
+  }, [url]);
+
+  const urlSetter = (url) => {
+    setUrl(url)
+  }
 
   return (
-    <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
-    </section>
+    <>
+    <SearchForm urlSetter={urlSetter} />
+    {!characterData ? null : <Pagination info={characterData.info} urlSetter={urlSetter} url={url} />}
+    <StyledCharacterListSection className="character-list">
+      {!characterData ? <NoCharacters /> : characterData.results.map(character => {
+        return <CharacterCard character={character} key={character.id} />
+      })}
+    </StyledCharacterListSection>
+    {!characterData ? null : <Pagination info={characterData.info} urlSetter={urlSetter} url={url} />}
+    </>
   );
 }
